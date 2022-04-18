@@ -5,11 +5,9 @@ inputs:
     required: false
     default: 'Dockerfile'
     description: 'Path to dockerfile'
-  dir:
-    required: false
-    default: '.'
-    description: 'Path to look for dockerfiles in'
 runs:
   using: 'docker'
   image: 'hadolint/hadolint:latest-alpine'
-  run: find "${{ github.event.inputs.dir }}" -type f -name "${{ github.event.inputs.dockerfile }}" | xargs hadolint
+  args:
+    - ${{ inputs.dockerfile }}
+
