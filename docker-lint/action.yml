@@ -1,0 +1,10 @@
+name: 'Docker Lint'
+description: 'Linti dockerfiles'
+inputs:
+  target:
+    required: false
+    default: 'Dockerfile'
+    description: 'Path to dockerfile'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
