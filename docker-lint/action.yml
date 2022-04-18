@@ -7,7 +7,7 @@ inputs:
     description: 'Path to dockerfile'
 runs:
   using: 'docker'
-  image: 'hadolint/hadolint:latest-alpine'
+  image: 'docker://hadolint/hadolint:latest-alpine'
   args:
     - ${{ inputs.dockerfile }}
 
