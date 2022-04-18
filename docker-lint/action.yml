@@ -9,5 +9,6 @@ runs:
   using: 'docker'
   image: 'docker://hadolint/hadolint:latest-alpine'
   args:
+    - hadolint
     - ${{ inputs.dockerfile }}
 
