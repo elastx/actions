@@ -7,4 +7,6 @@ inputs:
     description: 'Path to dockerfile'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'hadolint/hadolint:latest-alpine'
+  args:
+    - "${{ github.event.inputs.target }}"
