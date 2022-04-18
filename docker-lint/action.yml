@@ -1,12 +1,15 @@
 name: 'Docker Lint'
 description: 'Linti dockerfiles'
 inputs:
-  target:
+  dockerfile:
     required: false
     default: 'Dockerfile'
     description: 'Path to dockerfile'
+  dir:
+    required: false
+    default: '.'
+    description: 'Path to look for dockerfiles in'
 runs:
   using: 'docker'
   image: 'hadolint/hadolint:latest-alpine'
-  args:
-    - "${{ github.event.inputs.target }}"
+  run: find "${{ github.event.inputs.dir }}" -type f -name "${{ github.event.inputs.dockerfile }}" | xargs hadolint
