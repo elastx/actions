@@ -12,16 +12,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://alpine::3.15'
-  pre: apk install ansible-lint==6.0.2-r1
-  args:
-    - find 
-    - ${{ inputs.dir }} 
-    - -type
-    - f
-    - -maxdepth
-    - ${{ inputs.depth }} 
-    - -name
-    - '*.yml'
-    - |
-    - xargs
-    - ansible-lint
+  steps:
+    - run: apk install ansible-lint==6.0.2-r1
+    - run: find ${{ inputs.dir }} -type f -maxdepth ${{ inputs.depth }} -name '*.yml' | xargs ansible-lint
