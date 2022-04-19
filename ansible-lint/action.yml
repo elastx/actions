@@ -21,6 +21,5 @@ runs:
     - ${{ inputs.depth }} 
     - -name 
     - '*.yml' 
-    - | 
-    - xargs 
+    - | xargs 
     - ansible-lint
