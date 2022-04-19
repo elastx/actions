@@ -1,0 +1,19 @@
+name: 'Ansible Lint'
+description: 'Lint ansible files'
+inputs:
+  dir:
+    required: false
+    default: '.'
+    description: 'Path to serach for files'
+  depth:
+    required: false
+    default: 1
+    description: 'Depth to serach files in'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - sh
+    - entrypoint.sh
+    - ${{ inputs.dir }}
+    - ${{ inputs.depth }}
