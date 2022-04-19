@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "Running: find $2 -type f -maxdepth $3 -name '*.yml' | xargs ansible-lint"
-sh -c "find $2 -type f -maxdepth $3 -name '*.yml' | xargs ansible-lint"
+echo "Running: find $3 -type f -maxdepth $4 -name '*.yml' | xargs ansible-lint"
+sh -c "find $3 -type f -maxdepth $4 -name '*.yml' | xargs ansible-lint"
