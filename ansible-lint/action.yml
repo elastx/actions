@@ -5,21 +5,10 @@ inputs:
     required: false
     default: '.'
     description: 'Path to serach for files'
-  depth:
-    required: false
-    default: 1
-    description: 'Depth to llok for files'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - find 
-    - ${{ inputs.dir }}
-    - -type 
-    - f 
-    - -maxdepth 
-    - ${{ inputs.depth }} 
-    - -name 
-    - '*.yml' 
-    - | xargs 
     - ansible-lint
+    - -vvv
+    - ${{ inputs.dir }}
