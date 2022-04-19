@@ -4,4 +4,6 @@ RUN apk add --no-cache gcc make musl-dev libffi-dev openssl-dev ansible-lint
 
 COPY entrypoint.sh /entrypoint.sh
 
+RUN chmod +x entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
