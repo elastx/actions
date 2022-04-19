@@ -1,5 +1,3 @@
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually
-# or splits `args` in a string separated by whitespace.
-sh -c "echo $*"
+sh -c "find $1 -type f -maxdepth $2 -name '*.yml' | xargs ansible-lint"
