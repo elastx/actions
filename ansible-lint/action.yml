@@ -13,4 +13,14 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - find ${{ inputs.dir }} -type f -maxdepth ${{ inputs.depth }} -name '*.yml' | xargs ansible-lint
+    - find 
+    - ${{ inputs.dir }}
+    - -type 
+    - f 
+    - -maxdepth 
+    - ${{ inputs.depth }} 
+    - -name 
+    - '*.yml' 
+    - | 
+    - xargs 
+    - ansible-lint
