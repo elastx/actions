@@ -11,7 +11,6 @@ inputs:
     description: 'Depth to llok for files'
 runs:
   using: 'docker'
-  image: 'docker://alpine::3.15'
-  steps:
-    - run: apk install ansible-lint==6.0.2-r1
-    - run: find ${{ inputs.dir }} -type f -maxdepth ${{ inputs.depth }} -name '*.yml' | xargs ansible-lint
+  image: 'Dockerfile'
+  args:
+    - find ${{ inputs.dir }} -type f -maxdepth ${{ inputs.depth }} -name '*.yml' | xargs ansible-lint
