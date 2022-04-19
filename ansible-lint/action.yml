@@ -5,10 +5,15 @@ inputs:
     required: false
     default: '.'
     description: 'Path to serach for files'
+  depth:
+    required: false
+    default: 1
+    description: 'Depth to serach files in'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ansible-lint
-    - -vvv
+    - sh
+    - entrypoint.sh
     - ${{ inputs.dir }}
+    - ${{ inputs.depth }}
