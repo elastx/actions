@@ -1,4 +1,4 @@
-FROM python:3.11.0a7-alpine3.15
+FROM alpine:3.15
 
 RUN apk add --no-cache ansible-lint yamllint git
 
