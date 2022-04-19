@@ -1,0 +1,14 @@
+name: 'Docker Lint'
+description: 'Linti dockerfiles'
+inputs:
+  dockerfile:
+    required: false
+    default: 'Dockerfile'
+    description: 'Path to dockerfile'
+runs:
+  using: 'docker'
+  image: 'docker://hadolint/hadolint:latest-alpine'
+  args:
+    - hadolint
+    - ${{ inputs.dockerfile }}
+
