@@ -7,4 +7,4 @@ inputs:
     description: 'Path to serach for files'
 runs:
   using: 'docker'
-  image: 'docker://quay.io/elastx/ci-ansible-lint:6.0.2'
+  image: 'docker://quay.io/elastx/ci-ansible-lint:v6.7.0'
